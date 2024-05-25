@@ -2,9 +2,9 @@
   "version": 2,
   "builds": [
     {
-      "src": "tourizm/wsgi.py",
+      "src": "api/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+      "config": { "pythonVersion": "3.9" } 
     },
     {
       "src": "build_files.sh",
@@ -21,7 +21,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "tourizm/wsgi.py"
+      "dest": "api/wsgi.py"
     }
   ]
 }
