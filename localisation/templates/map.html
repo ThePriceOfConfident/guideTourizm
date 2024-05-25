@@ -1,0 +1,33 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block style %}
+<style>
+ 
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
+{% endblock style %}
+
+{% block content %}
+<div id="map"></div>
+{% endblock %}
+
+{% block script %}
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1Ijoic29oYWlicmFkYWkiLCJhIjoiY2x3M2Z1Nmk2MHBldjJqcGgwcG1nMm93bSJ9.qlAr0aADON3PL7P1fCGM1g';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [-79.4512, 43.6568],
+        zoom: 13
+    });
+
+    map.addControl(
+        new MapboxDirections({
+            accessToken: mapboxgl.accessToken
+        }),
+        'top-left'
+    );
+</script>
+
+{% endblock script%}

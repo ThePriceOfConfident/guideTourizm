@@ -1,0 +1,211 @@
+{% load static %}
+
+<!-- Tour Booking Start -->
+<div id="book-now" class="container-fluid booking py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <h5 class="section-booking-title pe-3">Booking</h5>
+                <h1 class="text-white mb-4">Online Booking</h1>
+                <p class="text-white mb-4">Turkey, a vibrant country straddling two continents, invites you to explore a
+                    land rich with history, brimming with culture, and bursting with character. From the bustling
+                    streets of Istanbul to the enchanting landscapes of Cappadocia, Turkey offers an array of
+                    experiences that promise to captivate your senses and enrich your spirit.
+                </p>
+                <p class="text-white mb-4">Our expertly curated tours ensure you experience the essence of Turkey. We
+                    offer personalized itineraries tailored to your interests, whether you're seeking adventure,
+                    relaxation, cultural immersion, or historical exploration. Our local guides are passionate about
+                    making your trip unforgettable, providing insights and access that go beyond the typical tourist
+                    experience.
+                </p>
+                <a href="{% url 'about-us' %}" class="btn btn-light text-primary rounded-pill py-3 px-5 mt-2">Read
+                    More</a>
+            </div>
+            <div class="col-lg-6">
+                <h1 class="text-white mb-3">Discover the Wonders of Turkey
+                </h1>
+                <p class="text-white mb-4"> <span class="text-warning">Embark</span> on a Journey of Discovery
+
+
+                    With Travela. Get More Deal Offers Here.</p>
+                <form method="post" action="{% url 'add_tour_booking' %}" id="boukingForm">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control bg-white border-0" id="name" name="name"
+                                    placeholder="Your Name">
+                                <label for="name">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" name="email" class="form-control bg-white border-0" id="email"
+                                    placeholder="Your Email">
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="number" name="phone" class="form-control bg-white border-0" id="phone"
+                                    placeholder="YourPhone">
+                                <label for="phone">Your Phone</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select class="form-select bg-white border-0" name="number_of_kids" id="number_of_kids">
+                                    <option value="0">0</option>
+                                    <option value="2">1</option>
+                                    <option value="3">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                <label for="number_of_kids">Number of Kids</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select class="form-select bg-white border-0" name="destination" id="destination">
+                                    {% for destination in destinations %}
+                                    <option value="{{ destination.id }}">{{ destination.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="destination">Destination</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select class="form-select bg-white border-0" name="number_of_persons"
+                                    id="number_of_persons">
+                                    <option value="1"> 1</option>
+                                    <option value="2"> 2</option>
+                                    <option value="3"> 3</option>
+                                    <option value="4"> 4</option>
+                                    <option value="5"> 5</option>
+                                    <option value="6"> 6</option>
+                                    <option value="7"> 7</option>
+                                    <option value="8"> 8</option>
+                                    <option value="9"> 9</option>
+                                    <option value="10"> 10</option>
+                                </select>
+                                <label for="number_of_persons">Number of Persons</label>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <select class="form-select bg-white border-0" name="special_accommodation"
+                                    id="special_accommodation">
+                                    <option value="none">No Special Accommodation Required</option>
+                                    <option value="wheelchair">Wheelchair Access Required</option>
+                                    <option value="visual">Visual Assistance Required</option>
+                                    <option value="hearing">Hearing Assistance Required</option>
+                                    <option value="other">Other (Please Specify in Special Requests)</option>
+                                </select>
+                                <label for="special_accommodation">Special Acomodations</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control bg-white border-0" placeholder="Special Request"
+                                    name="special_request" id="special_request" style="height: 100px"></textarea>
+                                <label for="special_request">Special Request</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary text-white w-100 py-3" type="submit">Book Now</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Tour Booking End -->
+
+
+
+<!-- Subscribe Start -->
+<div class="container-fluid subscribe py-5">
+    <div class="container text-center py-5">
+        <div class="mx-auto text-center" style="max-width: 900px;">
+            <h5 class="subscribe-title px-3">Subscribe</h5>
+            <h1 class="text-white mb-4">Our Newsletter</h1>
+            <p class="text-white mb-5">Discover the hidden gems of Turkey and get the latest updates, travel tips, and
+                exclusive offers directly to your inbox. Our newsletter is your gateway to discovering Turkey like never
+                before.
+            </p>
+            <div class="position-relative mx-auto">
+                <form method="post" action="{% url 'add_news_letter' %}" id="boukingForm">
+                    {% csrf_token %}
+                    <input class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" name="email" id="email" type="email"
+                        placeholder="Your email" required>
+                    <button type="submit"
+                        class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Subscribe End -->
+<!-- Footer Start -->
+<div class="container-fluid footer py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-6 col-xl-6">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Get In Touch</h4>
+                    <a href=""><i class="fas fa-home me-2"></i> {{companyInfo.address}}</a>
+                    <a href=""><i class="fas fa-envelope me-2"></i>{{companyInfo.email}}</a>
+                    <a href=""><i class="fas fa-phone me-2"></i> {{companyInfo.phone}}</a>
+
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-share fa-2x text-white me-2"></i>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Company</h4>
+                    <a href="about-us"><i class="fas fa-angle-right me-2"></i> About</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-white">Support</h4>
+                    <a href="contact-us"><i class="fas fa-angle-right me-2"></i> Contact</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+<!-- Copyright Start -->
+<div class="container-fluid copyright text-body py-4">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6 text-center text-md-end mb-md-0">
+                <i class="fas fa-copyright me-2"></i><a class="text-white" href="#">Travella</a>, All right reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-start">
+              
+                Designed By <a class="text-white" href="#">ABDALRAZZAQ FARUN</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Copyright End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>

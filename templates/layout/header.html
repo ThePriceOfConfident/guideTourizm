@@ -1,0 +1,60 @@
+{% load static %}
+<!-- Navbar & Hero Start -->
+<div class="container-fluid bg-primary px-5 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
+                        class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
+                        class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
+                        class="fab fa-linkedin-in fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i
+                        class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i
+                        class="fab fa-youtube fw-normal"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+
+                {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i
+                                class="fa fa-home me-2"></i> My Dashboard</small></a>
+                    <div class="dropdown-menu rounded">
+                        <a href="{% url 'profile' %}" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> My Profile</a>
+                        <a href="{% url 'logout' %}" class="dropdown-item"><i class="fas fa-power-off me-2"></i> Log Out</a>
+                    </div>
+                </div>
+                {% else %}
+                <a href="{% url 'signup' %}"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
+                <a href="{% url 'login' %}"><small class="me-3 text-light"><i class="fa fa-sign-in-alt me-2"></i>Login</small></a>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a  href="{% url 'home' %}" class="navbar-brand p-0">
+            <h1 class="m-0"><i class="fa fa-map-marker-alt me-3"></i>Travela</h1>
+            <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="{% url 'home' %}"class="nav-item nav-link active">Home</a>
+                <a href="{% url 'about-us' %}" class="nav-item nav-link">About</a>
+                <a href="{% url 'all_destinations' %}"  class="nav-item nav-link">Destinations</a>
+                
+                <a href="{% url 'contact-us' %}" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="#book-now" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Book Now</a>
+        </div>
+    </nav>
+    <!-- Navbar & Hero End -->

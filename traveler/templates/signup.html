@@ -1,0 +1,52 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid bg-breadcrumb">
+    <div class="container text-center" style="max-width: 900px;">
+        <div class="row justify-content-center">
+            <div class="col-md-6 rounded">
+              
+                    
+                    <h2 class="mb-4  display-5 text-white pt-3">Sign Up</h2>
+                
+                
+                <form method="post" action="{% url 'signup' %}">
+                    {% csrf_token %}
+                    {% if form.errors %}
+                    <div class="  error-box">
+                        <strong>Error(s):</strong>
+                        <ul>
+                            {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                            <li>{{ field|title }}: {{ error }}</li>
+                            {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    <div class="form-floating">
+                        <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.name }}"
+                            value="{{ form.username.value|default:'' }}" class="form-control" id="name"
+                            placeholder="Your Name">
+                        <label for="name">{{ form.username.label_tag }}</label>
+                    </div>
+                    <div class="form-floating mt-3">
+                        <input type="password" id="{{ form.password1.id_for_label }}" value=""
+                            name="{{ form.password1.name }}" class="form-control" id="name" placeholder="Password">
+                        <label for="name"> {{ form.password1.label_tag }}</label>
+                    </div>
+                    <div class="form-floating mt-3">
+                        <input type="password" id="{{ form.password2.id_for_label }}" value=""
+                            name="{{ form.password2.name }}" placeholder="Confirm Password" class="form-control"
+                            id="name" placeholder="Confirm password">
+                        <label for="name"> {{ form.password2.label_tag }}</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary rounded-pill py-3 px-5 mt-4 ms-lg-4 ">Sign Up</button>
+                     
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

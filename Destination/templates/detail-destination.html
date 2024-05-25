@@ -1,0 +1,245 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block style %}
+<style>
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+{% endblock style %}
+{% block content %}
+<div class="container-fluid bg-breadcrumb">
+    <div class="container text-center py-5" style="max-width: 900px;">
+        <h3 class="text-white display-3 mb-4">{{destination.name}}</h1>
+
+    </div>
+</div>
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12 d-flex  flex-md-row flex-column">
+            <div class="col-md-6 ">
+                <div class="mx-auto text-center mb-4" style="max-width: 900px;">
+                    <h5 class="section-title px-3">Description:</h5>
+                   
+                </div>
+                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+
+                <p class="mb-0 text-start py-4">{{destination.description}}</p>
+                </div>
+            </div>
+            <div class="col-md-6 ps-md-5  ">
+                <!-- CONTACT INFORMATION -->
+                <div class="col-md-12 ">
+                    <div class="mx-auto text-center mb-4" style="max-width: 900px;">
+                        <h5 class="section-title px-3">Contact Informations:</h5>
+                       
+                    </div>
+                 
+
+                </div>
+                <div class="service-content-inner d-flex align-items-start flex-column bg-white border border-primary rounded p-4 pe-0">
+                <div class="col-md-12 d-flex justify-content-center flex-row">
+
+                    <div class="col-md-3">
+                        <h5 class="me-5 info-label">
+                            <i class="fa fa-globe me-3" aria-hidden="true"></i> City:
+                        </h5>
+                    </div>
+                    <div class="col-md-9">
+                        <h5 class="info-text">{{destination.location}}</h5>
+                    </div>
+                </div>
+                <div class="col-md-12 d-flex justify-content-center flex-row">
+                    <div class="col-md-3">
+                        <h5 class="me-3 info-label">
+                            <i class="fa fa-location-arrow me-3" aria-hidden="true"></i>Email:
+                        </h5>
+                    </div>
+                    <div class="col-md-9">
+                        <h5 class="info-text">{{destination.contact_email}}</h5>
+                    </div>
+                </div>
+                <div class="col-md-12 d-flex justify-content-md-center justify-content-start flex-row">
+                    <div class="col-md-3">
+                        <h5 class="me-3 info-label">
+                            <i class="fa fa-location-arrow me-3" aria-hidden="true"></i>Address:
+                        </h5>
+                    </div>
+                    <div class="col-md-9">
+                        <h5 class="info-text">{{destination.address}}</h5>
+                    </div>
+                </div>
+                <div class="col-md-12 d-flex justify-content-center flex-row">
+                    <div class="col-md-3">
+                        <h5 class="me-5 info-label">
+                            <i class="fa fa-phone-square me-3" aria-hidden="true"></i>Phone:
+                        </h5>
+                    </div>
+                    <div class="col-md-9">
+                        <h5 class="info-text">{{destination.contact_phone}}</h5>
+                    </div>
+                </div>
+                <!-- TRANSPORTATION -->
+                <div class="col-md-12 d-flex justify-content-start py-3 flex-md-row flex-column">
+                    <h5 class="me-5 info-label ">Transportation:</h5>
+                    <div class="col-12 d-flex justify-content-start flex-row">
+                        {%for transportation in transportationOption%}
+                        <div class="col-2">
+                            {% if transportation.option == 'Bus'%}
+                            <h5 class="me-3 info-text">
+                                <i class="fa fa-bus" aria-hidden="true"></i> {{transportation.option}}
+                            </h5>
+
+                            {%endif%}
+                            {% if transportation.option == 'Train'%}
+                            <h5 class="me-3 info-text">
+                                <i class="fa fa-train" aria-hidden="true"></i> {{transportation.option}}
+                            </h5>
+                            {%endif%}
+                            {% if transportation.option == 'Plane'%}
+                            <h5 class="me-3 info-text">
+                                <i class="fa fa-plane" aria-hidden="true"></i> {{transportation.option}}
+                            </h5>
+                            {%endif%}
+                            {% if transportation.option == 'Car'%}
+                            <h5 class="me-3 info-text">
+                                <i class="fa fa-bus" aria-hidden="true"></i> {{transportation.option}}
+                            </h5>
+                            {%endif%}
+                            {% if transportation.option == 'Boat'%}
+                            <h5 class="me-3 info-text">
+                                <i class="fa fa-car" aria-hidden="true"></i> {{transportation.option}}
+                            </h5>
+                            {%endif%}
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+       
+    </div>
+    <div class="row">
+        <div class="mx-auto text-center my-5" style="max-width: 900px;">
+
+         
+            <div class="mx-auto text-center mb-4" style="max-width: 900px;">
+                <h5 class="section-title px-3">Direction Instructions</h5>
+               
+            </div>
+         
+        </div>
+        <div class="col-md-12">
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            
+            <div class="service-content-inner d-flex align-items-start gap-5 flex-column bg-white border border-primary rounded p-4 pe-0">
+                <div class="d-flex flex-row justify-content-center align-items-center">
+                    <i class="fa fa-calendar info-label px-3 " aria-hidden="true"></i>
+                    <h5 class="info-label auther px-3">Operating Hours:</h5>
+                    <p class="info-text auther px-3">{{detailsDestination.operating_hours}}</p>
+                </div>
+                <div class="d-flex flex-md-row flex-column justify-content-center align-items-center">
+                    <i class="fa fa-random info-label px-3 " aria-hidden="true"></i>
+                    <h5 class="info-label auther px-3">Nearby Accommodations:</h5>
+                    <p class="info-text auther px-3">{{detailsDestination.nearby_accommodations}}</p>
+                </div>
+                <div class="d-flex flex-md-row flex-column justify-content-center align-items-center">
+                    <i class="fa fa-universal-access info-label px-3 " aria-hidden="true"></i>
+                    <h5 class="info-label auther px-3">Accessibility Features:</h5>
+                    <p class="info-text auther px-3">{{detailsDestination.accessibility_features}}</p>
+                </div>
+                <div class="d-flex flex-md-row flex-column justify-content-center align-items-center">
+                    <i class="fa fa-podcast info-label px-3 " aria-hidden="true"></i>
+                    <h5 class="info-label auther px-3 py-md-0 py-4">Facilities and Amenities:</h5>
+                    <p class="info-text auther px-3">{{detailsDestination.facilities_and_amenities}}</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container gallery py-5 my-5">
+    <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+
+        <h1 class="mb-4 ">Gallery:</h1>
+
+    </div>
+    <div class="tab-pane fade show p-0">
+        <div class="row g-2">
+            {% for image in images %}
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-2">
+                <div class="gallery-item h-100">
+                    <img src="{{ image.image.url }}" class="img-fluid w-100 h-100 rounded" alt="Image">
+                    <div class="gallery-content">
+                        <div class="gallery-info">
+                            <h5 class="text-white text-uppercase mb-2">{{destination.name}}</h5>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoic29oYWlicmFkYWkiLCJhIjoiY2x3M2Z1Nmk2MHBldjJqcGgwcG1nMm93bSJ9.qlAr0aADON3PL7P1fCGM1g';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [28.9662187, 41.0091982],
+        zoom: 10
+    });
+
+    const directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        unit: 'metric',
+        profile: 'mapbox/driving',
+    });
+
+    map.addControl(directions, 'top-left');
+    map.addControl(new mapboxgl.NavigationControl());
+    
+    // Get the destination coordinates from the template context
+    const end = [{{longitude  | safe}}, {{latitude | safe}}];
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                const start = [position.coords.longitude, position.coords.latitude];
+                directions.setOrigin(start);
+                directions.setDestination(end);
+            },
+            function(error) {
+                console.error('Error getting user location:', error);
+
+                const start = [28.976018, 41.008237]; // Example fallback coordinates
+                directions.setOrigin(start);
+                directions.setDestination(end);
+            }
+        );
+    } else {
+        console.error('Geolocation is not supported by this browser.');
+
+        const start = [28.976018, 41.008237]; // Example fallback coordinates
+        directions.setOrigin(start);
+        directions.setDestination(end);
+    }
+</script>
+
+{% endblock script%}

@@ -1,0 +1,28 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid bg-breadcrumb">
+   <div class="container text-center" style="max-width: 900px;">
+
+      <div class="row justify-content-center">
+         <div class="col-lg-6 bg-primary py-4 rounded">
+            
+            <h1 class="mb-4 text-white"><i class="bi bi-check2-circle display-1 fs-2 text-white"></i> Booking Confirmed! </h1>
+            <p class="text-start text-white">Thank you, {{ name }}! Your booking has been successfully recorded.</p>
+            <ul class="text-white text-start">
+              
+               <li><strong>Destination:</strong> {{ destination.name }}</li>
+               <li><strong>Number of Persons:</strong> {{ number_of_persons }}</li>
+               
+            </ul>
+            <p class="text-white">We have sent a confirmation email to <strong>{{ email }}</strong>. Please check your inbox and contact us
+               if there are any issues.</p>
+            
+            <p class="text-white">Looking forward to seeing you soon!</p>
+            
+         </div>
+      </div>
+   </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,143 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid bg-breadcrumb">
+    <div class="container text-center py-5" style="max-width: 900px;">
+        <h3 class="text-white display-3 mb-4">About us</h1>
+    </div>
+</div>
+
+<!-- About Start -->
+<div class="container-fluid about py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5">
+                <div class="h-100" style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">
+                    <img src="{% static 'img/about-us.jpg' %}" class="img-fluid w-100 h-100" alt="">
+                </div>
+            </div>
+            <div class="col-lg-7"
+                style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
+                <h5 class="section-about-title pe-3">About Us</h5>
+                <h1 class="mb-4">Welcome to <span class="text-primary">Travela</span> Your Gateway to Exploring Turkey!
+                </h1>
+                <p class="mb-4">From the bustling markets of Istanbul to the tranquil beaches of the Aegean, Turkey is a
+                    land of contrasts waiting to be explored. Whether you’re seeking adventure, relaxation, cultural
+                    immersion, or historical exploration, our website is designed to guide you every step of the way.
+                </p>
+                <p class="mb-4">our platform is your ultimate resource for uncovering the hidden gems and celebrated
+                    wonders of this diverse country.</p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Detailed Travel Guides</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Cultural Insights</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Practical Tips</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Interactive Community</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>150 Premium City Tours</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
+                    </div>
+                </div>
+                <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- Services Start -->
+<div class="container-fluid bg-light service py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+            <h5 class="section-title px-3">Searvices</h5>
+            <h1 class="mb-0">Our Services</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-12">
+                <div class="row g-4">
+                    <div class="col-6">
+                        <div
+                            class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                            <div class="service-content text-start">
+                                <h5 class="mb-4">Educational Resources</h5>
+                                <p class="mb-0"> Gain access to a curated list of universities, language schools, and
+                                    libraries, along with detailed guides on scholarships, registration processes, and
+                                    student life in Turkey.
+                                </p>
+                            </div>
+                            <div class="service-icon p-4">
+                                <i class="fa fa-user fa-4x text-primary"></i>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div
+                            class="service-content-inner d-flex align-items-center  bg-white border border-primary rounded p-4 pe-0">
+                            <div class="service-content text-start">
+                                <h5 class="mb-4">Itineraries</h5>
+                                <p class="mb-0">Maximize your time and experience in Turkey with our curated itineraries
+                                    tailored to various interests and durations. Whether you have a week or a month, we
+                                    help you make the most of your visit.
+                            </div>
+                            <div class="service-icon p-4">
+                                <i class="fa fa-hotel fa-4x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div
+                            class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                            <div class="service-content text-start">
+                                <h5 class="mb-4">Detailed Travel Guides</h5>
+                                <p class="mb-0">Get up-to-date, practical information on Turkey’s must-visit
+                                    destinations, as well as off-the-beaten-path locales. Our guides cover everything
+                                    from accommodations and dining to attractions and activities.
+                                </p>
+                            </div>
+                            <div class="service-icon p-4">
+                                <i class="fa fa-globe fa-4x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div
+                            class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                            <div class="service-content text-start">
+                                <h5 class="mb-4">Cultural Insights</h5>
+                                <p class="mb-0"> Dive deep into the heart of Turkish culture. Learn about the customs,
+                                    traditions, and festivals that make Turkey unique, enhancing your travel experience.
+                                </p>
+                            </div>
+                            <div class="service-icon p-4">
+                                <i class="fa fa-cog fa-4x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!-- Services End -->
+
+
+
+
+
+
+
+
+{% endblock%}
