@@ -37,9 +37,8 @@ def destination_details(request,idDestination):
     detailsDestination = DestinationDetails.objects.get(destination=destination)
     imageDestination = DestinationImage.objects.filter(destination=destination)
     transportationOption = TransportationOption.objects.filter(destination=destination)
-    print(detailsDestination.entry_fees)
-    for img in imageDestination:
-        print(img.image.url)
+ 
+
     companyInfo = helpers.getCompanyInfo()
     context = {
         'destination': destination,

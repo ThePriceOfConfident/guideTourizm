@@ -8,6 +8,7 @@ from Destination.models import Destination
 def home(request):
     company_info = CompanyInfo.objects.first()
     destinations = list(Destination.objects.all().order_by('created')[:8])
+    
     context = {
         'companyInfo': company_info,
         'destinations': destinations

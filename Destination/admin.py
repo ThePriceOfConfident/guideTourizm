@@ -26,7 +26,7 @@ class DestinationAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Basic Information', {
-            'fields': ('name', 'description','price', 'location', 'address','Latitude','Longitude', 'contact_phone', 'contact_email', 'website', 'cover_image', 'average_rating')
+            'fields': ('name', 'description','price', 'location', 'address','Latitude','Longitude', 'contact_phone', 'contact_email', 'website', 'cover_image','galery', 'average_rating')
         }),
     )
 

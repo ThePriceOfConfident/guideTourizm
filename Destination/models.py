@@ -10,11 +10,13 @@ class Destination(models.Model):
     contact_phone = models.CharField(verbose_name="Contact Phone", max_length=20, blank=True)
     contact_email = models.EmailField(verbose_name="Contact Email", blank=True)
     website = models.URLField(verbose_name="Website", blank=True)
-    cover_image =  models.ImageField(verbose_name="Cover Image", upload_to="destination_images/covers") 
+    cover_image =  models.ImageField(verbose_name="Cover Image",null=True, blank=True, upload_to="destination_images/covers") 
+    galery = models.CharField(verbose_name="Galery",null=True, blank=True, max_length=500)
     average_rating = models.FloatField(verbose_name="Average Rating", blank=True, null=True)
     price = models.IntegerField(verbose_name="Price", default=0, blank=True)
     Latitude = models.CharField(verbose_name="Latitude", max_length=500, null=True, blank=True)
     Longitude  = models.CharField(verbose_name="Longitude", max_length=500, null=True, blank=True)
+    
     class Meta:
         verbose_name = "Destination"
         verbose_name_plural = "Destinations"
@@ -26,7 +28,8 @@ class DestinationImage(models.Model):
     created = models.DateTimeField(auto_now_add=True, verbose_name="Created")
     updated = models.DateTimeField(auto_now=True, verbose_name="Updated")
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE, related_name="images")
-    image = models.ImageField(verbose_name="Image", upload_to="destination_images/")
+    galery = models.CharField(verbose_name="Galery",null=True, blank=True, max_length=500)
+    image = models.ImageField(verbose_name="Image",null=True, blank=True, upload_to="destination_images/")
     class Meta:
         verbose_name = "Image"
         verbose_name_plural = "Images"

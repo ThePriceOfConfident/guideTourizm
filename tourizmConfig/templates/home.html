@@ -224,19 +224,19 @@
                             <div class="row g-4">
                                 <div class="col-lg-6">
                                     <div class="destination-img">
-                                        <img src="{{ destinations.0.cover_image.url }}" class="img-fluid w-100 rounded"
+                                        <img  src= "{% static 'destination_images/' %}{{  destinations.0.galery }}"  class="img-fluid w-100 rounded"
                                             alt="Image">
                                         <div class="destination-overlay p-4">
                                             <a href="#"
                                                 class="btn btn-primary text-white rounded-pill border py-2 px-3">20
                                                 Photos</a>
-                                            <h4 class="text-white mb-2 mt-3">{{ destinations.0.name }}</h4>
+                                            <h4 class="text-white mb-2 mt-3">{{ destinations.0.name }} {{  destinations.0.galery }}</h4>
                                             <a href="{% url 'details_destination' idDestination=destinations.0.id %}"
                                                 class="btn-hover text-white">View All Place <i
                                                     class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                         <div class="search-icon">
-                                            <a href="{{ destinations.0.cover_image.url }}"
+                                            <a href="{% static 'destination_images/' %}{{  destinations.0.galery }}"
                                                 data-lightbox="destination-1"><i
                                                     class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
                                         </div>
@@ -244,7 +244,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="destination-img">
-                                        <img class="img-fluid rounded w-100" src="{{ destinations.1.cover_image.url }}"
+                                        <img class="img-fluid rounded w-100" src="{% static 'destination_images/' %}{{  destinations.1.galery }}"
                                             alt="">
                                         <div class="destination-overlay p-4">
                                             <a href="#"
@@ -256,7 +256,7 @@
                                                     class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                         <div class="search-icon">
-                                            <a href="{{ destinations.1.cover_image.url }}"
+                                            <a href="{% static 'destination_images/' %}{{  destinations.1.galery }}"
                                                 data-lightbox="destination-2"><i
                                                     class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
                                         </div>
@@ -264,7 +264,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="destination-img">
-                                        <img class="img-fluid rounded w-100" src="{{ destinations.2.cover_image.url }}"
+                                        <img class="img-fluid rounded w-100" src="{% static 'destination_images/' %}{{  destinations.2.galery }}"
                                             alt="">
                                         <div class="destination-overlay p-4">
                                             <a href="#"
@@ -276,7 +276,7 @@
                                                     class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                         <div class="search-icon">
-                                            <a href="{{ destinations.3.cover_image.url }}"
+                                            <a href="{% static 'destination_images/' %}{{  destinations.2.galery }}"
                                                 data-lightbox="destination-7"><i
                                                     class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
                                         </div>
@@ -284,7 +284,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="destination-img">
-                                        <img class="img-fluid rounded w-100" src="{{ destinations.3.cover_image.url }}"
+                                        <img class="img-fluid rounded w-100" src="{% static 'destination_images/' %}{{  destinations.3.galery }}"
                                             alt="">
                                         <div class="destination-overlay p-4">
                                             <a href="#"
@@ -296,7 +296,7 @@
                                                     class="fa fa-arrow-right ms-2"></i></a>
                                         </div>
                                         <div class="search-icon">
-                                            <a href="{{ destinations.3.cover_image.url }}"
+                                            <a href="{% static 'destination_images/' %}{{  destinations.3.galery }}"
                                                 data-lightbox="destination-8"><i
                                                     class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
                                         </div>
@@ -306,7 +306,7 @@
                         </div>
                         <div class="col-xl-4">
                             <div class="destination-img h-100">
-                                <img class="img-fluid rounded w-100 h-100" src="{{ destinations.4.cover_image.url }}"
+                                <img class="img-fluid rounded w-100 h-100" src="{% static 'destination_images/' %}{{  destinations.4.galery }}"
                                     style="object-fit: cover; min-height: 300px;" alt="">
                                 <div class="destination-overlay p-4">
                                     <a href="{% url 'details_destination' idDestination=destinations.4.id %}"
@@ -318,14 +318,14 @@
                                             class="fa fa-arrow-right ms-2"></i></a>
                                 </div>
                                 <div class="search-icon">
-                                    <a href="{{ destinations.4.cover_image.url }}" data-lightbox="destination-4"><i
+                                    <a href="{% static 'destination_images/' %}{{  destinations.4.galery }}" data-lightbox="destination-4"><i
                                             class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="destination-img">
-                                <img class="img-fluid rounded w-100" src="{{ destinations.5.cover_image.url }}" alt="">
+                                <img class="img-fluid rounded w-100" src="{% static 'destination_images/' %}{{  destinations.5.galery }}" alt="">
                                 <div class="destination-overlay p-4">
                                     <a href="{% url 'details_destination' idDestination=destinations.5.id %}"
                                         class="btn btn-primary text-white rounded-pill border py-2 px-3">20
@@ -336,14 +336,14 @@
                                             class="fa fa-arrow-right ms-2"></i></a>
                                 </div>
                                 <div class="search-icon">
-                                    <a href="{{ destinations.5.cover_image.url }}" data-lightbox="destination-4"><i
+                                    <a href="{% static 'destination_images/' %}{{  destinations.5.galery }}" data-lightbox="destination-5"><i
                                             class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="destination-img">
-                                <img class="img-fluid rounded w-100" src="{{ destinations.6.cover_image.url }}" alt="">
+                                <img class="img-fluid rounded w-100" src="{% static 'destination_images/' %}{{  destinations.6.galery }}" alt="">
                                 <div class="destination-overlay p-4">
                                     <a href="{% url 'details_destination' idDestination=destinations.6.id %}"
                                         class="btn btn-primary text-white rounded-pill border py-2 px-3">20
@@ -354,14 +354,14 @@
                                             class="fa fa-arrow-right ms-2"></i></a>
                                 </div>
                                 <div class="search-icon">
-                                    <a href="{{ destinations.6.cover_image.url }}" data-lightbox="destination-5"><i
+                                    <a href="{% static 'destination_images/' %}{{  destinations.6.galery }}" data-lightbox="destination-6"><i
                                             class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="destination-img">
-                                <img class="img-fluid rounded w-100" src="{{ destinations.7.cover_image.url }}" alt="">
+                                <img class="img-fluid rounded w-100" src="{% static 'destination_images/' %}{{  destinations.7.galery }}" alt="">
                                 <div class="destination-overlay p-4">
                                     <a href="{% url 'details_destination' idDestination=destinations.7.id %}"
                                         class="btn btn-primary text-white rounded-pill border py-2 px-3">20
@@ -372,7 +372,7 @@
                                             class="fa fa-arrow-right ms-2"></i></a>
                                 </div>
                                 <div class="search-icon">
-                                    <a href="{{ destinations.8.cover_image.url }}" data-lightbox="destination-6"><i
+                                    <a href="{% static 'destination_images/' %}{{  destinations.7.galery }}" data-lightbox="destination-6"><i
                                             class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
                                 </div>
                             </div>
